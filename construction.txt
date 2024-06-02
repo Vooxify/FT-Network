@@ -1,3 +1,0 @@
-
-Client --> Connect to the server and transfer file
-Server --> Receive file from the client
