@@ -1,18 +1,10 @@
-import socket
 import threading
-
 from common.context import Context
 
 context = Context()
 
-print(context.get("IP"), context.get("PORT"))
 
 # Global
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-add = (context.get("IP"), context.get("PORT"))
-
-sock.bind(add)
-sock.listen()
 
 def handle_client(client_socket):
     # Afficher une notification lorsqu'un nouveau client se connecte
@@ -34,6 +26,14 @@ def handle_client(client_socket):
         client_socket.close()
 
 def start_server():
+
+    # FOR DEV REMOVE IF YOU USE !!
+    context.set("IP", "localhost")
+
+    sock = context.get("SOCKET")
+    print(context.get("IP"), context.get("PORT"))
+    sock.bind((context.get("IP"), context.get("PORT")))
+    sock.listen()
     while True:
         print("[+]  Waiting connection.")
         client_socket, client_address = sock.accept()

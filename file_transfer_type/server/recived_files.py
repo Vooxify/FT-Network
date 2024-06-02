@@ -1,10 +1,12 @@
+import socket
+
 from common.get_ip_and_port import get_ip_and_port
 from common.context import Context
 from common.generate_port import generate_custom_port
 
 from file_transfer_type.server.start_server import start_server
 
-server_port = Context()
+context = Context()
 
 
 def is_integer(msg):
@@ -36,6 +38,7 @@ def main():
             generate_custom_port(None)
             break
     #    socket = s.socket(s.AF_INET, s.SOCK_STREAM)
+    context.set("SOCKET", socket.socket(socket.AF_INET, socket.SOCK_STREAM))
     get_ip_and_port()
     start_server()
 

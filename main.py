@@ -1,5 +1,5 @@
-import file_transfer_type.server.recived_files as server
-
+# import file_transfer_type.server.recived_files as server
+from file_transfer_type.server.recived_files import main
 error = [
     "\n\n",
     "CTRL + C was pressed, stop the program",
@@ -13,7 +13,8 @@ try:
     q = input("s or c ? ")
 
     if q == "s":
-        server.main()
+        main()
+        pass
 
 
 
