@@ -11,4 +11,4 @@ def run():
     get_server_ip_and_port()
     socket.connect((context.get("SERVER_IP"), context.get("SERVER_PORT")))
 
-
+    # fix : can send many datas to the server.
