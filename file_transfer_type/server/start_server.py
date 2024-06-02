@@ -13,6 +13,7 @@ def handle_client(client_socket):
         while message:
             file_path = message.split("/")[-1]
             print(file_path)
+            break
 
     finally:
         client_socket.close()
