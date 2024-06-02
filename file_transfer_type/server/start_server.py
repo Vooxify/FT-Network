@@ -18,11 +18,15 @@ def start_server():
     while True:
         connection, client_adress = socket.accept()
         print(f"[+]  New connection was detected ! {client_adress}")
+        try:
+            while True:
 
-        data = connection.recv(1024)
+                data = connection.recv(1024)
 
-        print(f"Data recived : '{data.decode()}'")
+                print(f"Data recived : '{data.decode()}'")
 
-        if data.lower() == b"quit":
+                if data.lower() == b"quit":
+
+                    break
+        finally:
             connection.close()
-            break
