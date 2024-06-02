@@ -23,7 +23,7 @@ def start_server():
                 # Lisez les données reçues jusqu'à ce que vous détectiez la fin du message
                 data = b''
                 while not data.endswith(b'\n'):
-                    data += connection.recv(1024)
+                    data += connection.recv(2048)
 
                 # Traitez le message reçu
                 print('Reçu :', data.decode().strip())
