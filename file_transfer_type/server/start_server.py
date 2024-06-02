@@ -16,17 +16,21 @@ def start_server():
 
     print("[+]  Started connection.")
     while True:
-        connection, client_adress = socket.accept()
-        print(f"[+]  New connection was detected ! {client_adress}")
+        # Acceptez une connexion entrante et créez un nouveau socket pour communiquer avec le client
+        connection, client_address = socket.accept()
         try:
             while True:
+                # Lisez les données reçues jusqu'à ce que vous détectiez la fin du message
+                data = b''
+                while not data.endswith(b'\n'):
+                    data += connection.recv(1024)
 
-                data = connection.recv(1024)
+                # Traitez le message reçu
+                print('Reçu :', data.decode().strip())
 
-                print(f"Data recived : '{data.decode()}'")
-
-                if data.lower() == b"quit":
-
+                # Vérifiez si l'utilisateur veut arrêter la communication
+                if data.lower() == b'quit\n':
                     break
         finally:
+            # Fermez le socket de communication
             connection.close()
