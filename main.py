@@ -1,4 +1,5 @@
 # import file_transfer_type.server.recivedFiles as server
+from file_transfer_type.client.send_file import run
 
 error = [
     "\n\n",
@@ -13,7 +14,7 @@ try:
     q = input("s or c ? ")
 
     if q == "c":
-        pass
+        run()
 
         # server.main()
 
