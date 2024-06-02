@@ -5,7 +5,7 @@ context = Context()
 
 
 def start_server():
-    # context.set("IP", "localhost")
+    context.set("IP", "localhost")
     socket = s.socket(s.AF_INET, s.SOCK_STREAM)
 
     address = (context.get("IP"), context.get("PORT"))
