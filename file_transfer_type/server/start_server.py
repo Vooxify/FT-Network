@@ -15,7 +15,14 @@ def start_server():
     socket.listen(1)
 
     print("[+]  Started connection.")
-    connection, client_adress = socket.accept()
-    print(f"[+]  New connection was detected ! {client_adress}")
+    while True:
+        connection, client_adress = socket.accept()
+        print(f"[+]  New connection was detected ! {client_adress}")
 
-    connection.close()
+        data = connection.recv(1024)
+
+        print(f"Data recived : '{data.decode()}'")
+
+        if data.lower() == b"quit":
+            connection.close()
+            break

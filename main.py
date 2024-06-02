@@ -1,4 +1,4 @@
-import file_transfer_type.server.recivedFiles as server
+import file_transfer_type.server.recived_files as server
 
 error = [
     "\n\n",
