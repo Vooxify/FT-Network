@@ -13,8 +13,13 @@ def handle_client(client_socket):
         while message:
             context.set("FILE", message.split("/")[-1])
             # Get File
-            print(context.get("FILE"))
-            break
+            with open(context.get("FILE"), "wb") as f:
+                while True:
+                    data = client_socket.recv()
+                    if not data:
+                        break
+                    f.write(data)
+                break
 
     finally:
         client_socket.close()
