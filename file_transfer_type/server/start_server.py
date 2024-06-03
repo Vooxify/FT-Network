@@ -11,8 +11,9 @@ def handle_client(client_socket):
     try:
         message = client_socket.recv(1024).decode()
         while message:
-            file_path = message.split("/")[-1]
-            print(file_path)
+            context.set("FILE", message.split("/")[-1])
+            # Get File
+            print(context.get("FILE"))
             break
 
     finally:
