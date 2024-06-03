@@ -11,15 +11,8 @@ def handle_client(client_socket):
     try:
         message = client_socket.recv(1024).decode()
         while message:
-            context.set("FILE", message.split("/")[-1])
-            # Get File
-            with open(context.get("FILE"), "wb") as f:
-                while True:
-                    data = client_socket.recv()
-                    if not data:
-                        break
-                    f.write(data)
-                break
+            message = client_socket.recv(1024).decode()
+            print(message)
 
     finally:
         client_socket.close()
