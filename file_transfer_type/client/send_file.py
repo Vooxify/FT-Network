@@ -14,20 +14,7 @@ def run():
 
     while True:
         msg = input("data : ")
-        if msg != "file":
-            socket.sendall(msg.encode())
-        if msg.lower() == "file":
-            get_file_path()
-            socket.sendall(context.get("FILE_PATH").encode())
 
-            with open(context.get("FILE_PATH").split("/")[-1].encode(), "rb") as file:
-                # Do a progress bar here
-                data = file.read()
-                if not data:
-                    break
-                socket.sendall(data)
+        socket.sendall(msg.encode())
 
-        elif msg.lower() == "quit":
-            break
-    socket.close()
 
