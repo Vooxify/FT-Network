@@ -41,6 +41,7 @@ def start_server():
     print("[+]  Waiting for connection.")
     get_ip_and_port()
 
-    while True:
-        c, client_adress = sock.accept()
-        receive_data(c, client_adress)
+
+    c, client_adress = sock.accept()
+
+    receive_data(c, client_adress)

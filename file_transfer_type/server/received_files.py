@@ -15,3 +15,4 @@ def receive_data(connect, client_address):
 
     finally:
         print("[!]  Connection ERROR !")
+        connect.close()
