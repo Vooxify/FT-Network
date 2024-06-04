@@ -13,8 +13,7 @@ def run():
     start_client()
 
     while True:
-        msg = input("data : ")
-
+        msg = input("Input data to send at the server : ")
         socket.sendall(msg.encode())
 
 
