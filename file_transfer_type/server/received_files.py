@@ -14,5 +14,4 @@ def receive_data(connect, client_address):
         print(f"[+]  Data received from {client_address} : {data.decode()}")
 
     finally:
-        print("[!]  Connection ERROR !")
         connect.close()
