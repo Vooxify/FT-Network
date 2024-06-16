@@ -15,5 +15,7 @@ def run():
     while True:
         msg = input("Input data to send at the server : ")
         socket.sendall(msg.encode())
+        if msg == "stop":
+            break
 
 
